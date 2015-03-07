@@ -26,7 +26,7 @@ net1 = NeuralNet(
 	#update_epsilon=1e-06,
 
 	regression=True, #we are doing regression, not classification
-	max_epochs=400, #number of epochs to train
+	max_epochs=100, #number of epochs to train
 	verbose=1,
 	)
 
@@ -45,3 +45,7 @@ plt.ylim(1e-3,1e-2)
 plt.yscale('log')
 plt.show()
 
+X,_ = load(test=True)
+y_pred = net1.predict(X)
+from plot_sample import *
+create_plot(X, y_pred)
