@@ -37,15 +37,15 @@ net2 = NeuralNet(
 	#update_epsilon=1e-06,
 
 	regression=True, #we are doing regression, not classification
-	max_epochs=100, #number of epochs to train
+	max_epochs=10, #number of epochs to train
 	verbose=1,
 	)
 
 X,y = load2d()
 net2.fit(X, y)
 
-train_loss = np.array([i["train_loss"] for i in net1.train_history_])
-valid_loss = np.array([i["valid_loss"] for i in net1.train_history_])
+train_loss = np.array([i["train_loss"] for i in net2.train_history_])
+valid_loss = np.array([i["valid_loss"] for i in net2.train_history_])
 plt.plot(train_loss, linewidth=3, label="train")
 plt.plot(valid_loss, linewidth=3, label="valid")
 plt.grid()
