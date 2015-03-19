@@ -44,6 +44,10 @@ net2 = NeuralNet(
 X,y = load2d()
 net2.fit(X, y)
 
+import cPickle as pickle
+with open('net2.pickle', 'wb') as f:
+    pickle.dump(net2, f, -1)
+
 train_loss = np.array([i["train_loss"] for i in net2.train_history_])
 valid_loss = np.array([i["valid_loss"] for i in net2.train_history_])
 plt.plot(train_loss, linewidth=3, label="train")

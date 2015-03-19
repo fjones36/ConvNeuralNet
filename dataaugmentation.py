@@ -71,6 +71,10 @@ net3 = NeuralNet(
 X,y = load2d()
 net3.fit(X, y)
 
+import cPickle as pickle
+with open('net3.pickle', 'wb') as f:
+    pickle.dump(net3, f, -1)
+
 train_loss = np.array([i["train_loss"] for i in net3.train_history_])
 valid_loss = np.array([i["valid_loss"] for i in net3.train_history_])
 plt.plot(train_loss, linewidth=3, label="train")
